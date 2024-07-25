@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            height: 100vh; 
+            background-color: burlywood;
+        }
+
+        h2{
+            border: 1px solid black;
+            padding: 50px;
+            width: 30%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+        }
+
+        .btn{
+            height: 50px;
+            width: 100px;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Background Colour : <span class="colorname"></span></h2>
+    <button class="btn">Click Me</button>
+
+    <script>
+        let color = [1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+        let btn = document.querySelector('.btn');
+        let colorname = document.querySelector('.colorname');
+
+        btn.addEventListener('click', function () {
+            let hexColor = "#";
+            for(let i = 0; i < 6; i++){
+                hexColor += color[generateRandom()];
+            }
+            colorname.textContent = hexColor;
+            document.body.style.backgroundColor = hexColor;
+
+        });
+
+
+        function generateRandom(){
+           return Math.floor( Math.random() * color.length);
+        }
+    </script>
+</body>
+</html>
